@@ -52,4 +52,17 @@ class TicketFactory extends Factory
         ]);
     }
 
+    public function configure(): static
+    {
+        return $this->afterCreating(function (Ticket $ticket) {
+            $count = rand(0, 3);
+
+            for ($i = 0; $i < $count; $i++) {
+                $ticket
+                    ->addMediaFromString(fake()->text(100))
+                    ->usingFileName(fake()->uuid() . '.txt')
+                    ->toMediaCollection('attachments');
+            }
+        });
+    }
 }

@@ -18,8 +18,6 @@ return new class extends Migration
             $table->text("message");
             $table->string("status");
             $table->timestamp("responded_at")->nullable();
-            $table->timestamps();
-        });
     }
 
     /**

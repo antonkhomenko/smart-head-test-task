@@ -4,5 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return "Hello world";
-//    return view('welcome');
+});
+
+Route::get("/widget", function() {
+    return "Admin page";
 });
